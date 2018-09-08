@@ -1,15 +1,6 @@
 package main;
 
 import model.Call;
-import model.Director;
-import model.Employee;
-import model.Supervisor;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
 
 public class DispatcherRejectCalls extends Dispatcher {
 
@@ -18,6 +9,12 @@ public class DispatcherRejectCalls extends Dispatcher {
         super(maxCalls);
     }
 
+    /**
+     * this will reject the call is there is no available employee
+     * or if the maximum call is reached.
+     * @param call
+     * @return
+     */
     public Boolean dispatchCall(Call call){
         this.getLock().lock();
         if(!canTakeACall()){

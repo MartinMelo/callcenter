@@ -32,6 +32,10 @@ public abstract class Dispatcher {
         }
     }
 
+    /**
+     * Take an available employee and dispatch the to that employee.
+     * @param call
+     */
     protected void dispatchCallToEmployee(Call call) {
         Employee freeEmployee =
                 this.employees.stream()
@@ -47,6 +51,10 @@ public abstract class Dispatcher {
         freeEmployee.takeCall(call,this);
     }
 
+    /**
+     * Maximum Calls or Employee available.
+     * @return
+     */
     Boolean canTakeACall() {
         return !(this.calls>=this.maxCalls) &
                 this.availableEmployees();
@@ -69,6 +77,7 @@ public abstract class Dispatcher {
         this.employees.add(employee);
     }
 
+    //GETTERS
     public Lock getLock() {
         return lock;
     }

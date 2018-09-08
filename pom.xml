@@ -7,17 +7,8 @@
     <groupId>almundo</groupId>
     <artifactId>callcenter</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <dependencies>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>RELEASE</version>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
-
     <packaging>jar</packaging>
-    <name>model.Call Center</name>
+    <name>Call Center</name>
     <description>Test</description>
 
     <properties>
@@ -28,4 +19,12 @@
         <maven.compiler.source>1.8</maven.compiler.source>
     </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>RELEASE</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 </project>

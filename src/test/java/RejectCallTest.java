@@ -1,20 +1,17 @@
-import main.Dispatcher;
 import main.DispatcherRejectCalls;
 import model.Director;
 import model.Operator;
 import model.Supervisor;
 import modelTest.Caller;
-import org.junit.After;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
 
 public class RejectCallTest  extends DispatcherTest{
     @Before
-    public void create() {
+    public void setUp() {
         this.setDispatcher(new DispatcherRejectCalls(10));
         for(int i=0;i<10;i++){
             if(i%5==0){
@@ -29,6 +26,9 @@ public class RejectCallTest  extends DispatcherTest{
 
     }
 
+    /**
+     * Runs Only one call.
+     */
     @Test
     public void oneCall(){
         new Caller(this.getDispatcher()).start();
@@ -39,6 +39,10 @@ public class RejectCallTest  extends DispatcherTest{
         }
         Assert.assertTrue(this.getOutContent().toString().contains("Accepted"));
     }
+
+    /**
+     * Runs Hundred calls.
+     */
     @Test
     public void nCalls(){
         for(int i=0;i<100;i++){

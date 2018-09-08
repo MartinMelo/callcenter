@@ -12,7 +12,7 @@ import org.junit.Test;
 public class AwaitOnLineTest extends DispatcherTest{
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp(){
         this.setDispatcher(new DispatcherAwaitOnLine(10));
         for(int i=0;i<10;i++){
             if(i%5==0){
@@ -26,6 +26,9 @@ public class AwaitOnLineTest extends DispatcherTest{
         }
     }
 
+    /**
+     * Runs Only one call.
+     */
     @Test
     public void oneCall(){
         new Caller(this.getDispatcher()).start();
@@ -37,6 +40,9 @@ public class AwaitOnLineTest extends DispatcherTest{
         Assert.assertFalse(this.getOutContent().toString().contains("Rejected"));
         Assert.assertTrue(this.getOutContent().toString().contains("Accepted"));
     }
+    /**
+     * Runs Hundred calls.
+     */
     @Test
     public void nCalls(){
         for(int i=0;i<100;i++){
